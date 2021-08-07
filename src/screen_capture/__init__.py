@@ -8,13 +8,13 @@ from mss import mss
 class ScreenCapture(ABC):
 
     @abstractmethod
-    def capture_screen(self) -> Image:
+    def capture_screen(self) -> Image.Image:
         pass
 
 
 class MssScreenCapture(ScreenCapture):
 
-    def capture_screen(self) -> Image:
+    def capture_screen(self) -> Image.Image:
         # Capture entire screen
         with mss() as sct:
             monitor = sct.monitors[1]
@@ -25,7 +25,7 @@ class MssScreenCapture(ScreenCapture):
 
 class ImageGrabScreen(ScreenCapture):
 
-    def capture_screen(self) -> Image:
+    def capture_screen(self) -> Image.Image:
         return ImageGrab.grab()
 
 
